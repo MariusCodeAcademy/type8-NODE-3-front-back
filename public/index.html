@@ -6,5 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body> </body>
+  <body>
+    <h1>Posts</h1>
+    <button id="create">Create post</button>
+
+    <script>
+      const btn = document.getElementById('create');
+
+      btn.addEventListener('click', async () => {
+        const newPostData = {
+          title: 'Best NODE',
+          body: 'IS in Express',
+        };
+        const resp = await fetch('http://localhost:3000/api/posts', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify(newPostData),
+        });
+        const dataInJs = await resp.json();
+        console.log('dataInJs ===', dataInJs);
+      });
+    </script>
+  </body>
 </html>
