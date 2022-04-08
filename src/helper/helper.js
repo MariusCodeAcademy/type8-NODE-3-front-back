@@ -10,6 +10,13 @@ function lg(el) {
 // jei nerandam tokio, tai grazinam false
 // findById(arr, 5)
 
+function findById(arr, givenId) {
+  const foundObj = arr.find((elObj) => elObj.id === givenId);
+
+  return foundObj === undefined ? false : foundObj;
+}
+
 module.exports = {
   lg,
+  findById,
 };

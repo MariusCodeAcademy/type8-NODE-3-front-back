@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const { port } = require('./config');
-// const { lg } = require('./helper/helper');
+const { findById } = require('./helper/helper');
+const { posts } = require('./data/db');
 const app = express();
 
-const { posts } = require('./data/db');
+// Middleware
+app.use(cors()); // nebutu CORS error jungianti is front
+app.use(express.json()); // BA gali matyti atkoduota json formatu atsiustus duomenis
 
 app.get('/', (request, response) => {
   response.json('Hello world');
@@ -20,7 +23,15 @@ function postsController(request, response) {
 app.get('/api/posts/3', (request, response) => {
   const postId = 3;
   // panaudoti getPostById() server.js su posts ir postId
-  response.json(posts);
+  const found = findById(posts, postId);
+  const ats = found === false ? 'User not found' : found;
+  response.json(ats);
+});
+
+app.post('/api/posts', (request, response) => {
+  const body = request.body;
+  console.log('body ===', body);
+  response.json('trying to create post');
 });
 
 app.listen(port, () => console.log('Heloo express is online', port));
