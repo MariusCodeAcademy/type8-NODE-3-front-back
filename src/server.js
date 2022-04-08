@@ -29,9 +29,15 @@ app.get('/api/posts/3', (request, response) => {
 });
 
 app.post('/api/posts', (request, response) => {
-  const body = request.body;
-  console.log('body ===', body);
-  response.json('trying to create post');
+  const newPostObj = request.body;
+  console.log('newPostObj ===', newPostObj);
+  // idedam nauja obj i masyva
+  // UZD1 - generuoti didejanti ID ir prideti ji prie newPostObj
+  posts.push(newPostObj);
+  response.status(201).json({
+    success: true,
+    msg: 'Post created',
+  });
 });
 
 app.listen(port, () => console.log('Heloo express is online', port));
