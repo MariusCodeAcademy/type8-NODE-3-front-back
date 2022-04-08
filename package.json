@@ -1,0 +1,20 @@
+{
+  "name": "node-3-front-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariusCodeAcademy/type8-NODE-3-front-back.git"
+  },
+  "keywords": [],
+  "author": "Marius K.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariusCodeAcademy/type8-NODE-3-front-back/issues"
+  },
+  "homepage": "https://github.com/MariusCodeAcademy/type8-NODE-3-front-back#readme"
+}
