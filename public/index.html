@@ -18,7 +18,7 @@
           title: 'Best NODE',
           body: 'IS in Express',
         };
-        const resp = await fetch('http://localhost:3000/api/posts', {
+        const resp = await fetch('http://localhost:3000/api/posts11', {
           method: 'POST',
           headers: {
             'Content-type': 'application/json',
@@ -27,6 +27,9 @@
         });
         const dataInJs = await resp.json();
         console.log('dataInJs ===', dataInJs);
+        if (dataInJs.success) {
+          alert(dataInJs.msg);
+        }
       });
     </script>
   </body>
